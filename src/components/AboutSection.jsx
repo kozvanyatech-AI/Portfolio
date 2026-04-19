@@ -31,7 +31,7 @@ function AboutSection() {
                   {/* Brand mark */}
                   <div className="relative z-10 text-center">
                     <div className="inline-flex items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl bg-white/10 border border-white/10 shadow-lg shadow-black/15">
-                      <span className="text-5xl md:text-6xl font-semibold tracking-tight text-white">MC</span>
+                      <span className="text-5xl md:text-6xl font-semibold tracking-tight text-white">AC</span>
                     </div>
                     <div className="text-sm font-semibold text-white/80 mt-3 uppercase tracking-wider">Founder & CEO</div>
                   </div>
