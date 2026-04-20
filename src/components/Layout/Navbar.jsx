@@ -1,58 +1,64 @@
-import { useState, useEffect } from 'react'
-import icon from '../../assets/icons/icon.png'
+import { useState, useEffect } from "react";
+import icon from "../../assets/icons/icon.png";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Services', href: '#services' },
-    { label: 'Work', href: '#portfolio' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
-  ]
+    { label: "Home", href: "#home" },
+    { label: "Services", href: "#services" },
+    { label: "Work", href: "#portfolio" },
+    { label: "About", href: "#about" },
+    { label: "Contact", href: "#contact" },
+  ];
 
   // Handle scroll effect for navbar
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const closeMenu = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   // Handle smooth scroll and close mobile menu
   const handleNavClick = (e, href) => {
-    e.preventDefault()
-    closeMenu()
-    
-    const element = document.querySelector(href)
+    e.preventDefault();
+    closeMenu();
+
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled
-        ? 'bg-gray-950/70 backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-black/20'
-        : 'bg-transparent'
-    }`}>
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-gray-950/70 backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-black/20"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center gap-3 flex-shrink-0 group cursor-pointer">
             <div className="relative w-10 h-10 overflow-hidden rounded-lg">
-              <img src={icon} alt="Kozvanya logo" className="w-full h-full object-cover" />
+              <img
+                src={icon}
+                alt="Kozvanya logo"
+                className="w-full h-full object-cover"
+              />
             </div>
             <span className="text-xl font-semibold bg-gradient-to-r from-white via-gray-100 to-gray-200 bg-clip-text text-transparent group-hover:from-primary-300 group-hover:to-primary-400 transition-all duration-300">
               Kozvanya
@@ -86,11 +92,26 @@ function Navbar() {
               className="lg:hidden relative p-2 w-10 h-10 rounded-lg text-gray-400 hover:text-white focus:outline-none group transition-all duration-300"
             >
               <span className="absolute inset-0 bg-white/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              <svg className="relative w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="relative w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 )}
               </svg>
             </button>
@@ -108,9 +129,7 @@ function Navbar() {
                   onClick={(e) => handleNavClick(e, link.href)}
                   className="block px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300 group text-sm font-medium cursor-pointer"
                 >
-                  <span className="relative">
-                    {link.label}
-                  </span>
+                  <span className="relative">{link.label}</span>
                 </a>
               ))}
               <button className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25">
@@ -121,7 +140,7 @@ function Navbar() {
         )}
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

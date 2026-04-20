@@ -1,13 +1,13 @@
-import icon from '../../assets/icons/icon.png'
+import icon from "../../assets/icons/icon.png";
 
 function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   const footerLinks = [
-    { label: 'Home', href: '#' },
-    { label: 'Services', href: '#' },
-    { label: 'Contact', href: '#' },
-  ]
+    { label: "Home", href: "#" },
+    { label: "Services", href: "#" },
+    { label: "Contact", href: "#" },
+  ];
 
   return (
     <footer className="border-t border-white/10 glass-effect-subtle mt-20 md:mt-28 lg:mt-32">
@@ -18,20 +18,27 @@ function Footer() {
           <div className="space-y-5">
             <div className="flex items-center gap-3 group cursor-pointer">
               <div className="relative w-12 h-12 overflow-hidden rounded-xl">
-                <img src={icon} alt="Kozvanya logo" className="w-full h-full object-cover" />
+                <img
+                  src={icon}
+                  alt="Kozvanya logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-white via-gray-100 to-gray-200 bg-clip-text text-transparent group-hover:from-primary-300 group-hover:to-primary-400 transition-all duration-300">
                 Kozvanya
               </span>
             </div>
             <p className="text-gray-400 text-base leading-relaxed max-w-sm font-light">
-              Scaling Ideas Into Intelligent Solutions. Building premium digital experiences for forward-thinking organizations.
+              Scaling Ideas Into Intelligent Solutions. Building premium digital
+              experiences for forward-thinking organizations.
             </p>
           </div>
 
           {/* Links Section */}
           <div className="space-y-6">
-            <h4 className="font-semibold text-white text-xs uppercase tracking-widest font-medium">Quick Links</h4>
+            <h4 className="font-semibold text-white text-xs uppercase tracking-widest font-medium">
+              Quick Links
+            </h4>
             <ul className="space-y-4">
               {footerLinks.map((link) => (
                 <li key={link.label}>
@@ -51,12 +58,13 @@ function Footer() {
         {/* Divider */}
         <div className="border-t border-white/5 pt-8">
           <p className="text-gray-500 text-sm text-center font-light">
-            &copy; {currentYear} Kozvanya Agency. All rights reserved. Built with precision and care.
+            &copy; {currentYear} Kozvanya Agency. All rights reserved. Built
+            with precision and care.
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
