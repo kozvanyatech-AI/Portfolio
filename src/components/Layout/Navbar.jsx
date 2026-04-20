@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import icon from '../../assets/icons/icon.png'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -50,10 +51,8 @@ function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center gap-3 flex-shrink-0 group cursor-pointer">
-            <div className="relative w-10 h-10">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute inset-0.5 bg-gray-950 rounded-md"></div>
-              <div className="absolute inset-0 flex items-center justify-center text-primary-300 font-bold text-sm">K</div>
+            <div className="relative w-10 h-10 overflow-hidden rounded-lg">
+              <img src={icon} alt="Kozvanya logo" className="w-full h-full object-cover" />
             </div>
             <span className="text-xl font-semibold bg-gradient-to-r from-white via-gray-100 to-gray-200 bg-clip-text text-transparent group-hover:from-primary-300 group-hover:to-primary-400 transition-all duration-300">
               Kozvanya

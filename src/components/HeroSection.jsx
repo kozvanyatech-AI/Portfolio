@@ -17,12 +17,12 @@ function HeroSection() {
         <div className="flex flex-col items-center justify-center text-center space-y-8 md:space-y-10 lg:space-y-12">
           {/* Main Heading */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight max-w-5xl text-white animate-fade-in">
-            Scaling Ideas Into
+            From Idea to
             <span className="block mt-3">
               <span className="relative inline-block">
                 <span className="absolute inset-0 bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 opacity-0 animate-pulse-slow" style={{ animationDelay: '0.5s' }}></span>
                 <span className="relative bg-gradient-to-r from-primary-300 via-primary-400 to-primary-500 bg-clip-text text-transparent">
-                  Intelligent Solutions
+                  Scalable Reality
                 </span>
               </span>
             </span>

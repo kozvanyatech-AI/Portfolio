@@ -1,3 +1,5 @@
+import icon from '../../assets/icons/icon.png'
+
 function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -15,20 +17,8 @@ function Footer() {
           {/* Brand Section */}
           <div className="space-y-5">
             <div className="flex items-center gap-3 group cursor-pointer">
-              <div className="relative w-12 h-12">
-                {/* Icon Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-primary-600 rounded-xl group-hover:from-primary-300 group-hover:to-primary-500 transition-all duration-300 shadow-lg shadow-primary-500/20 group-hover:shadow-primary-500/40"></div>
-                
-                {/* Glassmorphism Overlay */}
-                <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-xl"></div>
-                
-                {/* K Icon */}
-                <svg className="absolute inset-0 w-full h-full p-2.5" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 4v16" />
-                  <path d="M5 12h10" />
-                  <path d="M15 12l6-7" />
-                  <path d="M15 12l6 7" />
-                </svg>
+              <div className="relative w-12 h-12 overflow-hidden rounded-xl">
+                <img src={icon} alt="Kozvanya logo" className="w-full h-full object-cover" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-white via-gray-100 to-gray-200 bg-clip-text text-transparent group-hover:from-primary-300 group-hover:to-primary-400 transition-all duration-300">
                 Kozvanya
