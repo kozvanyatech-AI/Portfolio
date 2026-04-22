@@ -64,7 +64,7 @@ function AboutSection() {
                 About Us
               </p>
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white">
-                Meet Our <span className="gradient-text">Founder</span>
+                Meet <span className="gradient-text">Ashvina Chauhan</span>
               </h2>
             </div>
 
