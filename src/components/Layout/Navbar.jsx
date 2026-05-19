@@ -60,9 +60,14 @@ function Navbar() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className="text-xl font-semibold bg-gradient-to-r from-white via-gray-100 to-gray-200 bg-clip-text text-transparent group-hover:from-primary-300 group-hover:to-primary-400 transition-all duration-300">
-              Kozvanya
-            </span>
+            <div className="flex flex-col">
+              <span className="text-xl font-semibold bg-gradient-to-r from-white via-gray-100 to-gray-200 bg-clip-text text-transparent group-hover:from-primary-300 group-hover:to-primary-400 transition-all duration-300">
+                Kozvanya
+              </span>
+              <span className="text-xs text-gray-500 -mt-0.5">
+                Digital Solutions
+              </span>
+            </div>
           </div>
 
           {/* Desktop Navigation */}

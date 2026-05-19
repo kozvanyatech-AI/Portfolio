@@ -1,57 +1,7 @@
-import { useState } from "react";
 import { useInView } from "../hooks";
-import emailjs from "@emailjs/browser";
 
 function ContactSection() {
   const [ref, isInView] = useInView();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const serviceId = "service_y71nwod";
-    const templateId = "template_pcim1cu";
-    const publicKey = "tBAx4yF6PgJrDz0Kk";
-
-    const templateParams = {
-      name: formData.name,
-      email: formData.email,
-      reply_to: formData.email,
-      message: formData.message,
-    };
-
-    emailjs
-      .send(serviceId, templateId, templateParams, publicKey)
-      .then((response) => {
-        console.log("Email sent successfully!", response.status, response.text);
-        setSubmitted(true);
-
-        // Reset form after 3 seconds
-        setTimeout(() => {
-          setFormData({ name: "", email: "", message: "" });
-          setSubmitted(false);
-        }, 3000);
-      })
-      .catch((error) => {
-        console.error("Failed to send email:", error);
-        alert(
-          "Failed to send message. Please try again or contact directly via email.",
-        );
-      });
-  };
 
   return (
     <section
@@ -80,150 +30,123 @@ function ContactSection() {
           </p>
         </div>
 
-        {/* Form Container */}
-        <div className="max-w-2xl mx-auto">
-          <div className="relative rounded-2xl glass-effect border-primary-400/30 p-10 md:p-14 overflow-hidden group hover:bg-white/10 transition-all duration-300">
-            {/* Success Message */}
-            {submitted && (
-              <div className="absolute inset-0 rounded-2xl bg-gray-950/90 backdrop-blur-md flex items-center justify-center z-50 animate-fade-in">
-                <div className="text-center">
-                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary-500/20 border-2 border-primary-500 flex items-center justify-center">
-                    <svg
-                      className="w-10 h-10 text-primary-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">
-                    Message Sent!
-                  </h3>
-                  <p className="text-gray-400 text-lg">
-                    Thank you for reaching out. We'll get back to you soon.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {/* Form Content */}
-            <form onSubmit={handleSubmit} className="relative z-10 space-y-7">
-              {/* Name Input */}
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-semibold text-gray-300 mb-3"
+        {/* Contact Options - No Forms */}
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Email Option */}
+            <a
+              href="mailto:kozvanya.tech@gmail.com"
+              className="group relative p-8 md:p-10 rounded-2xl glass-effect border border-white/10 hover:border-primary-400/30 transition-all duration-300 hover:bg-white/5 hover:-translate-y-2 text-center"
+            >
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary-500/20 border border-primary-400/30 flex items-center justify-center group-hover:bg-primary-500/30 transition-all duration-300">
+                <svg
+                  className="w-8 h-8 text-primary-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="John Doe"
-                  required
-                  className="w-full px-6 py-4 rounded-xl glass-effect-subtle border-primary-400/20 text-white placeholder-gray-500 transition-all duration-300 focus:outline-none focus:border-primary-400/50 focus:ring-2 focus:ring-primary-500/20 hover:border-primary-400/40 hover:bg-white/5"
-                />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
               </div>
+              <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-primary-300 transition-colors">
+                Email Us
+              </h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Get a response within 24 hours
+              </p>
+              <span className="text-primary-400 text-sm font-medium group-hover:underline">
+                kozvanya.tech@gmail.com
+              </span>
+            </a>
 
-              {/* Email Input */}
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-semibold text-gray-300 mb-3"
+            {/* WhatsApp Option */}
+            <a
+              href="https://wa.me/919726665009"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative p-8 md:p-10 rounded-2xl glass-effect border border-white/10 hover:border-green-500/30 transition-all duration-300 hover:bg-white/5 hover:-translate-y-2 text-center"
+            >
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center group-hover:bg-green-500/30 transition-all duration-300">
+                <svg
+                  className="w-8 h-8 text-green-400"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
                 >
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="john@example.com"
-                  required
-                  className="w-full px-6 py-4 rounded-xl glass-effect-subtle border-primary-400/20 text-white placeholder-gray-500 transition-all duration-300 focus:outline-none focus:border-primary-400/50 focus:ring-2 focus:ring-primary-500/20 hover:border-primary-400/40 hover:bg-white/5"
-                />
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
               </div>
+              <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-green-400 transition-colors">
+                WhatsApp Us
+              </h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Quick chat, typically faster response
+              </p>
+              <span className="text-green-400 text-sm font-medium group-hover:underline">
+                Start Conversation
+              </span>
+            </a>
 
-              {/* Message Textarea */}
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-semibold text-gray-300 mb-3"
+            {/* Book Call Option */}
+            <a
+              href="#"
+              className="group relative p-8 md:p-10 rounded-2xl glass-effect border border-white/10 hover:border-primary-400/30 transition-all duration-300 hover:bg-white/5 hover:-translate-y-2 text-center opacity-60 cursor-not-allowed"
+            >
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary-500/20 border border-primary-400/30 flex items-center justify-center group-hover:bg-primary-500/30 transition-all duration-300">
+                <svg
+                  className="w-8 h-8 text-primary-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your project..."
-                  rows="6"
-                  required
-                  className="w-full px-6 py-4 rounded-xl glass-effect-subtle border-primary-400/20 text-white placeholder-gray-500 transition-all duration-300 focus:outline-none focus:border-primary-400/50 focus:ring-2 focus:ring-primary-500/20 hover:border-primary-400/40 hover:bg-white/5 resize-none"
-                ></textarea>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
               </div>
+              <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-primary-300 transition-colors">
+                Book Call
+              </h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Schedule a 15-min chat (Coming Soon)
+              </p>
+              <span className="text-primary-400 text-sm font-medium">
+                Coming Soon
+              </span>
+            </a>
+          </div>
 
-              {/* Submit Button */}
-              <button
-                type="submit"
-                className="group relative w-full py-5 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/40 transform hover:-translate-y-1.5 mt-10"
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2 text-lg">
-                  Send Message
-                  <svg
-                    className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-            </form>
-
-            {/* Contact Info Below Form */}
-            <div className="relative z-10 mt-14 pt-10 border-t border-white/10 group-hover:border-primary-400/30 transition-colors">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center items-center">
-                <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-widest text-gray-500 font-medium">
-                    Email
-                  </p>
-                  <a
-                    href="mailto:kozvanya.tech@gmail.com"
-                    className="text-primary-300 hover:text-primary-200 text-base font-semibold transition-colors block"
-                  >
-                    kozvanya.tech@gmail.com
-                  </a>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-widest text-gray-500 font-medium">
-                    Phone
-                  </p>
-                  <a
-                    href="tel:+919726665009"
-                    className="text-primary-300 hover:text-primary-200 text-base font-semibold transition-colors block"
-                  >
-                    +91 9726665009
-                  </a>
-                </div>
+          {/* Additional Contact Info */}
+          <div className="mt-16 pt-10 border-t border-white/10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+              <div className="space-y-2">
+                <p className="text-xs uppercase tracking-widest text-gray-500 font-medium">
+                  Email
+                </p>
+                <a
+                  href="mailto:kozvanya.tech@gmail.com"
+                  className="text-primary-300 hover:text-primary-200 text-base font-semibold transition-colors block"
+                >
+                  kozvanya.tech@gmail.com
+                </a>
+              </div>
+              <div className="space-y-2">
+                <p className="text-xs uppercase tracking-widest text-gray-500 font-medium">
+                  Phone
+                </p>
+                <a
+                  href="tel:+919726665009"
+                  className="text-primary-300 hover:text-primary-200 text-base font-semibold transition-colors block"
+                >
+                  +91 9726665009
+                </a>
               </div>
             </div>
           </div>

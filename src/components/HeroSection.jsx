@@ -49,7 +49,10 @@ function HeroSection() {
             style={{ animationDelay: "0.4s" }}
           >
             {/* Primary CTA */}
-            <button className="group relative px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/40 transform hover:-translate-y-1.5">
+            <a
+              href="#contact"
+              className="group relative px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/40 transform hover:-translate-y-1.5 inline-flex items-center justify-center"
+            >
               <span className="relative z-10 flex items-center justify-center gap-2 text-base sm:text-lg">
                 Get Started
                 <svg
@@ -67,10 +70,13 @@ function HeroSection() {
                 </svg>
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
+            </a>
 
             {/* Secondary CTA */}
-            <button className="group relative px-8 sm:px-10 py-4 sm:py-5 glass-effect-hover rounded-full overflow-hidden">
+            <a
+              href="#portfolio"
+              className="group relative px-8 sm:px-10 py-4 sm:py-5 glass-effect-hover rounded-full overflow-hidden inline-flex items-center justify-center"
+            >
               <span className="relative z-10 flex items-center justify-center gap-2 text-base sm:text-lg text-gray-200">
                 <svg
                   className="w-5 h-5"
@@ -93,7 +99,7 @@ function HeroSection() {
                 </svg>
                 View Work
               </span>
-            </button>
+            </a>
           </div>
 
           {/* Trust/Social Proof */}
